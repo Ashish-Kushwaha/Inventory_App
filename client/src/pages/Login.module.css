@@ -1,0 +1,372 @@
+.container{
+    display: flex;
+    width: 100%;
+    height: 100vh; 
+    background-color: #242531;
+}
+
+.container .form-containers{
+    width: 42%;
+    height: 100%;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    background-color: #e0e0e2;
+    border: none;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.container .form-containers .login-container{
+    height: 52%;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+.container .form-containers .login-container .welcome-container{
+    height: 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+.container .form-containers  .heading{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2B2F38;
+   
+}
+.container .form-containers  .text{
+    color: #667085;
+    font-size: .7rem;
+}
+.container .form-containers .login-container form{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .5rem;
+   
+}
+.container .form-containers .login-container .signup{
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    
+}
+.container .form-containers .login-container .signup span{
+    margin-left: .2rem;
+    color: #1E4AE9;
+}
+.container .form-containers form div{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+.container .form-containers form div label{
+    color: #0C1421;
+    font-size: .7rem;
+}
+.container .form-containers form div input{
+    border: none;
+    border-radius: .5rem;
+    height: 2rem;
+    padding-left: .7rem;
+    color: #8897AD;
+    font-size: .7rem;
+}
+.container .form-containers form div input::placeholder{
+    color: #8897AD;
+}
+.container .form-containers form div input:focus{
+    outline: none;
+}
+.container .form-containers form .password-container{
+    position: relative;
+}
+.container .form-containers form .password-container .eye-icon{
+    position: absolute;
+    right: .8rem;
+    top: 1.6rem;
+    height: .9rem;
+}
+.container .form-containers form .forgot{
+    text-align: right;
+    color: #1E4AE9;
+    /* width: 100%; */
+    font-size: .7rem;
+}
+.container .form-containers form button{
+   border: none;  
+    border-radius: .5rem;
+    padding: .5rem;
+    color: #FFFFFF;
+    background-color: #242531;
+}
+.container .form-containers .email-container{
+   height: 35%;
+   width: 55%;
+   display: flex;
+   flex-direction: column;
+    justify-content: space-between;
+    
+}
+.container .form-containers .email-container .email-text-container{
+   height: 35%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.container .form-containers .email-container .email-text-container .text{
+   height: 44%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+    color: #313957;
+
+}
+.container .form-containers .otp-container{
+   height: 39%;
+   width: 55%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.container .form-containers .otp-container .otp-text-container{
+   height: 43%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.container .form-containers .otp-container .text{
+   height: 58%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+    color: #313957;
+    font-size: .8rem;
+}
+.container .form-containers .otp-container form{
+   height: 43%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+    /* color: #313957; */
+    
+}
+.container .form-containers .email-container form{
+   height: 48%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.container .form-containers .reset-password-container{
+   height: 48%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.container .form-containers .reset-password-container .reset-password-text-container{
+   height: 28%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.side-Woman{
+    height: 28rem;
+    /* margin-bottom: 2rem; */
+}
+.frame{
+    height: 28rem;
+    /* margin-bottom: 2rem; */
+}
+.side-startup{
+    height: 28rem;
+    /* margin-bottom: 2rem; */
+}
+.side-Group{
+    height: 28rem;
+    /* margin-bottom: 2rem; */
+}
+.container .form-containers .reset-password-container .reset-password-text-container .text{
+   height: 48%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+   color: #313957;
+    font-size: .8rem;
+}
+.container .form-containers .reset-password-container form{
+   height: 59%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container .logo-container{
+    width: 58%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 6rem;
+}
+
+.container .logo-container .logo-text-container{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 14%;
+}
+.container .logo-container .logo-text-container .logo-text{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #FFFFFF;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+.container .logo-container .logo-text-container .logo{
+    height: 90%;
+    
+}
+
+.container .logo-container .frame-container{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+
+.container .logo-container .frame-container .frame{
+    height: 25rem;
+    width: 30rem;
+    /* width: 40rem; */
+}
+
+@media (max-width: 430px){
+  .container .logo-container{
+    display: none;
+  }
+  .container .form-containers{
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+  }
+  .container .form-containers .login-container{
+    height: 60%;
+    width: 70%;
+  }
+  .container .form-containers .login-container .welcome-container{
+    height: 19%;
+   
+}
+.container .form-containers  .heading{
+    font-size: 1.5rem;
+
+   
+}
+.container .form-containers  .text{
+    font-size: .8rem;
+}
+.container .form-containers .login-container form{
+    height: 55%;
+    width: 100%;
+    
+   
+}
+.container .form-containers .login-container .signup{
+    font-size: .8rem;
+    
+}
+
+.container .form-containers .email-container{
+   height: 43%;
+   width: 70%;
+    
+}
+.container .form-containers .email-container .email-text-container{
+   height: 40%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.container .form-containers .email-container .email-text-container {
+   height: 43%;
+   
+
+}
+.container .form-containers .email-container .email-text-container .text{
+   height: 39%;
+font-size: .9rem;
+
+}
+.container .form-containers .email-container form{
+   height: 40%;
+   
+
+}
+.container .form-containers .email-container .email-text-container .heading{
+   font-size: 2rem;
+    
+}
+.container .form-containers .otp-container{
+   height: 41%;
+   width: 70%;
+}
+.container .form-containers .otp-container .otp-text-container{
+   height: 43%;
+   
+
+}
+.container .form-containers .otp-container .otp-text-container .heading{
+   font-size: 1.4rem;
+   
+
+}
+.container .form-containers .otp-container .otp-text-container .text{
+   height: 55%;
+   
+
+}
+.container .form-containers .otp-container form{
+   height: 42%;
+}
+.container .form-containers .reset-password-container{
+   height: 65%;
+}
+.container .form-containers .reset-password-container .reset-password-text-container{
+   height: 40%;
+    
+
+}
+.container .form-containers .reset-password-container .reset-password-text-container .heading{
+   font-size: 2rem;
+    
+
+}
+.container .form-containers .reset-password-container .reset-password-text-container .text{
+   font-size: .9rem;
+   height: 60%;
+}
+.container .form-containers .reset-password-container form{
+   height: 45%;
+
+}
+
+}

@@ -1,0 +1,259 @@
+.statistics-container{
+    height: 94%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+.statistics-container .tiles-container{
+    height: 25%;
+    width: 100%;
+    gap: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+/* .statistics-container .tiles-container .tile-wrapper{
+   width: auto;
+} */
+.statistics-container .sale-and-top-container{
+    height: 75%;
+    width: 100%;
+    gap: .5rem;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.statistics-container .sale-and-top-container  .sales-and-purchase{
+    height: 100%;
+    width: 45rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9fa;
+    gap: 3rem;
+    padding: 1rem;
+}
+.statistics-container .sale-and-top-container  .sales-and-purchase div{
+    position: relative;
+  width: 100%;
+}
+.statistics-container .sale-and-top-container  .sales-and-purchase div img{
+   position: absolute;
+  right: 10.5rem;
+    top: .1rem;
+    z-index: 9;
+}
+.statistics-container select{
+    position: absolute;
+    right: 5rem;
+    top: -.2rem;
+    outline: none;
+    padding: .3rem 2rem;
+    color: #7f8695;
+    -webkit-appearance: none; /* Safari/Chrome */
+  -moz-appearance: none;    /* Firefox */
+  appearance: none;
+  border-radius: .5rem;
+  border: .2rem solid #f1f1f3;
+}
+.statistics-container .sale-and-top-container  .top-product{
+    height: 100%;
+    width: 17rem;
+    border-radius: .5rem;
+    background-color: #f9f9fa;
+    display: flex;
+    flex-direction: column;
+     gap: .6rem;
+    padding: 1.5rem 1rem;
+}
+.statistics-container .sale-and-top-container .top-product p{
+    font-size: .7rem;
+    font-weight: 700;
+}
+.statistics-container .sale-and-top-container  .top-product .products_container{
+    height: 90%;
+    width: 100%;
+}
+.statistics-container .sale-and-top-container  .top-product .products_container .product{
+    display: flex;
+    gap: .2rem;
+    height: 15%;
+    width: 100%;
+}
+.statistics-container .sale-and-top-container  .top-product .products_container .product .name_img{
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    height: 100%;
+    width: 40%;
+}
+.statistics-container .sale-and-top-container .top-product .products_container .product .name_img .name{
+    font-size: .7rem;
+}
+.statistics-container .sale-and-top-container .top-product .products_container .product .name_img img{
+    height: 2rem;
+}
+.statistics-container .sale-and-top-container .top-product .products_container .product .rating{
+    height: 100%;
+    display: flex;
+    gap: .1rem;
+    justify-content: center;
+    align-items: center;
+}
+.statistics-container .sale-and-top-container .top-product .products_container .product .rating .rectangle{
+    background-color: #fad85d;
+    height: .3rem;
+    width: .6rem;
+}
+.statistics-container .tiles-container   .revenue-tile{
+    height: 100%;
+    width: 20rem;
+    gap: .2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #fad85d;
+    border-radius: .5rem;
+}
+/* .statistics-container .tiles-container .tile-wrapper  .revenue-tile{
+    height: 100%;
+    width: 100%;
+    gap: .2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #fad85d;
+    border-radius: .5rem;
+} */
+.statistics-container .tiles-container  .Sold-tile{
+    height: 100%;
+    width: 20rem;
+    gap: .2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #0bf4c8;
+    border-radius: .5rem;
+}
+.statistics-container .tiles-container  .Stock-tile{
+    height: 100%;
+    width: 20rem;
+    gap: .2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #f2a0ff;
+    border-radius: .5rem;
+}
+.statistics-container .tiles-container .text-img{
+    
+    display: flex;
+    
+    justify-content: space-between;
+    width: 100%;
+    
+}
+.statistics-container .tiles-container .amount-text p{
+    color: #020617;
+    font-size: 1.2rem;
+    
+}
+.statistics-container .tiles-container .amount-text span{
+    color: #000000;
+    font-size: .7rem;
+    font-weight: 400;
+    
+}
+.statistics-container .tiles-container .text-img p{
+    color: #020617;
+    font-size: .7rem;
+    font-weight: 600;
+}
+.statistics-container .tiles-container .text-img img{
+    height: 1rem;
+    
+}
+
+
+@media (max-width: 430px){
+   .statistics-container{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: .8rem;
+}
+.statistics-container .tiles-container   .revenue-tile{
+    height: 90%;
+    width: 20rem;
+    gap: .2rem;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fad85d;
+    border-radius: .5rem;
+}
+.statistics-container .tiles-container  .Sold-tile{
+    height: 90%;
+    width: 20rem;
+    gap: .2rem;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #0bf4c8;
+    border-radius: .5rem;
+}
+.statistics-container .tiles-container  .Stock-tile{
+    height: 90%;
+    width: 20rem;
+    gap: .2rem;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f2a0ff;
+    border-radius: .5rem;
+}
+.statistics-container .tiles-container .text-img{
+    
+    display: flex;
+    
+    justify-content: space-between;
+    width: 100%;
+    
+}
+/* .statistics-container .tiles-container .text-img> p{
+    
+    font-size: .1rem;
+    
+} */
+.statistics-container .tiles-container .amount-text p{
+    color: #020617;
+    font-size: 1.2rem;
+    font-weight: 600;
+    
+}
+.statistics-container .tiles-container .amount-text span{
+    color: #000000;
+    font-size: .5rem;
+    font-weight: 400;
+    
+}
+.statistics-container .tiles-container .text-img p{
+    color: #020617;
+    font-size: .6rem;
+    font-weight: 600;
+}
+.statistics-container .tiles-container .text-img img{
+    height: .7rem;
+    
+}
+}

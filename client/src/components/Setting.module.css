@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.settings-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: .5rem;
+    padding:1rem 1rem;
+    height: 70%;
+    background-color: #ffffff;
+}
+.settings-container .settings-header{
+    display: flex;
+    gap: 1rem;
+    padding-bottom: .3rem;
+    border-bottom: .1rem solid #d0d0d0;
+    font-family: "Poppins", sans-serif;
+    font-size: .7rem;
+    font-weight: 500;
+    color: #292929;
+    position: relative;
+}
+.settings-container .settings-header p{
+    padding-left: .7rem;
+    /* position: absolute; */
+    /* border-bottom: .1rem solid ; */
+}
+.settings-container .edit-profile{
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.settings-container .edit-profile .form{
+   height: 90%;
+   width: 40%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding-left: 1rem;
+   padding-top: 1rem;
+}
+.settings-container .edit-profile .form div{
+   /* height: 80%; */
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.settings-container .edit-profile .form div label{
+   font-size: .7rem;
+   font-family: "Poppins", sans-serif;
+   color: #5E5E5E;
+}
+.settings-container .edit-profile .form div input{
+    margin-top: .1rem;
+   font-size: .7rem;
+   font-family: "Poppins", sans-serif;
+   font-weight: 500;
+   color: #555555;
+   padding: .4rem .7rem;
+   border: .08rem solid #626262;
+   border-radius: .5rem;
+}
+.settings-container .edit-profile .form div input:focus{
+    outline: none;
+}
+.settings-container .edit-profile .button{
+   display: flex;
+   justify-content: end;
+}
+.settings-container .edit-profile .button button{
+   background-color: #242531;
+   font-family: "Poppins", sans-serif;
+   color: #FFFFFF;
+   font-size: .8rem;
+   padding: .5rem 3.5rem;
+   border-radius: .5rem;
+}
+.settings-container .edit-profile .button .log-out{
+   background-color: #da3e33;
+   font-family: "Poppins", sans-serif;
+   color: #FFFFFF;
+   font-size: .8rem;
+   border: .1rem solid #992b24;
+   padding: .5rem 3.5rem;
+   border-radius: .5rem;
+}
+.settings-container .management-container{
+    padding-top: 1rem;
+    height: 50%;
+    width: 60%;
+} 
+.settings-container .management-container div{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    
+} 
+.settings-container .management-container div span{
+    margin-left: 1rem;
+    font-size: .8rem;
+
+} 
+.settings-container .management-container div p{
+    font-weight: 700;
+    font-size: .8rem;
+    color: #5E5E5E;
+
+} 
+@media (max-width: 430px) {
+    .settings-container .settings-header{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: .3rem;
+    /* padding-right: .2rem; */
+    border-bottom: .1rem solid #d0d0d0;
+    font-family: "Poppins", sans-serif;
+    font-size: .8rem;
+    font-weight: 500;
+    color: #292929;
+    position: relative;
+}
+    .settings-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: .5rem;
+    padding:1rem 1rem;
+    height: 80%;
+    background-color: #ffffff;
+}
+    .settings-container .edit-profile .form div label{
+   font-size: .8rem;
+   font-family: "Poppins", sans-serif;
+   color: #5E5E5E;
+}
+     .settings-container .edit-profile .form{
+   height: 80%;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding-left: 1rem;
+   padding-top: 1rem;
+}
+}

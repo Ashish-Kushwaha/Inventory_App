@@ -1,0 +1,37 @@
+// src/features/invoices/invoicesSlice.js
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+
+
+
+const invoicesSlice = createSlice({
+  name: "invoices",
+  initialState: {
+    invoiceID:"",
+    invoiceProducts:[],
+    invoiceAmount:0,
+    invoiceReference:"",
+    dueDate:"",
+  },
+  reducers: {
+    setInvoiceID:(state,action)=>{
+      state.invoiceID=action.payload
+    },
+    setInvoiceProducts:(state,action)=>{
+      state.invoiceProducts=action.payload
+    },
+    setInvoiceAmount:(state,action)=>{
+      state.invoiceAmount=action.payload
+    },
+    setInvoiceReference:(state,action)=>{
+      state.invoiceReference=action.payload
+    },
+    setDueDate:(state,action)=>{
+      state.dueDate=action.payload
+    }
+  },
+  
+});
+export const {setInvoiceID,setInvoiceProducts,setInvoiceAmount,setInvoiceReference,setDueDate}=invoicesSlice.actions;
+
+export default invoicesSlice.reducer;

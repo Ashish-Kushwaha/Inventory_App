@@ -4,7 +4,7 @@
   import { useSelector } from 'react-redux';
   import axios from 'axios';
   const Settings = ({isMobile,setIsLoggedIn}) => { 
-    const [settingUser,setsettingUser]=useState({})
+
 
     const [edit,setEdit]=useState(true);
     const [account,setAccount]=useState(false)
@@ -112,7 +112,7 @@
         confirmPassword:parUser?.password,
       })
     },[])
-    //  setsettingUser(parUser)
+
     console.log(user);
     const handleLogout=async()=>{
 

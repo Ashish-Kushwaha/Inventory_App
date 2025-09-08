@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import styles from './Login.module.css'
 import Logo from '../assets/Logo.svg' 
 import Eye from '../assets/Eye.svg'
 import Frame from '../assets/Frame.svg'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+
 import Woman from "../assets/Women Web Developer with laptop.svg"
 import Group from "../assets/Group.svg"
 import Startup from "../assets/Startup.svg"
 
  
 import { toast } from "react-toastify"; 
-import { setUser } from '../redux/slices/authSlice' 
+
  
 
 
 const Login = ({setIsLoggedIn,isMobile}) => {
-  const dispatch=useDispatch()
+
   
   const navigate=useNavigate()
   const [loginDetails,setLoginDetails]=useState({email:"",password:""})
@@ -379,41 +379,3 @@ export default Login
 
 
 
-// import React, { useState } from "react";
-
-// const SubmitButton = () => {
-//   const [loading, setLoading] = useState(false);
-
-//   const handleClick = async () => {
-//     setLoading(true); // disable + change color
-//     try {
-//       // Simulate API call (2s)
-//       await new Promise((resolve) => setTimeout(resolve, 2000));
-//       alert("Action completed ✅");
-//     } catch (error) {
-//       console.error(error);
-//     } finally {
-//       setLoading(false); // reset
-//     }
-//   };
-
-//   return (
-//     <button
-//       onClick={handleClick}
-//       disabled={loading}
-//       style={{
-//         padding: "10px 20px",
-//         backgroundColor: loading ? "#6c757d" : "#007bff", // gray when loading
-//         color: "#fff",
-//         border: "none",
-//         borderRadius: "5px",
-//         cursor: loading ? "not-allowed" : "pointer",
-//         transition: "background-color 0.3s ease",
-//       }}
-//     >
-//       {loading ? "Processing..." : "Click Me"}
-//     </button>
-//   );
-// };
-
-// export default SubmitButton;

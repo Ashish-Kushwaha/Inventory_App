@@ -20,8 +20,7 @@ function App() {
   return user ? true : false;
 });
   const [isMobile,setIsMobile]=useState(window.innerWidth <= 430)
-  console.log(window.innerWidth)
-  console.log("is MObile",isMobile);
+
   return (
     <Router>
       <Routes>

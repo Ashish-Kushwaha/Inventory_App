@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import styles from "./Signup.module.css";
 import Logo from "../assets/Logo.svg";
 import Eye from "../assets/Eye.svg";
@@ -8,7 +8,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 const Signup = ({isMobile}) => {
   const [user,setUser]=useState({fullName:"",email:"",password:"",confirmPassword:""})
-  // console.log(user);
+
   const navigate=useNavigate();
   const Handlechange=(e)=>{
     const {name,value} =e.target;

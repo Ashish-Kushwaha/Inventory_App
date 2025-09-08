@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useState } from "react";
 
 import styles from "./Dashboard.module.css";
 import Sales from "../assets/Sales.svg";
@@ -119,22 +119,17 @@ const Dashboard = ({ isMobile }) => {
   };
   const {graph}=useSelector((state)=>state.dashboard)
   const {topProducts}=useSelector((state)=>state.products)
-  console.log(topProducts);
   
-  console.log(graph)
-  console.log(graph.monthly)
-  console.log(graph.weekly)
-  console.log(graph.yearly)
   const [inventorySummary,setInventorySummary]=useState();
-   console.log(inventorySummary)
+ 
   const [productSummary,setProductSummary]=useState();
-   console.log(productSummary)
+  
   const [purchaseOverview,setPurchaseOverview]=useState();
-   console.log(purchaseOverview)
-  const [salesOverview,setsalesOverview]=useState();
-   console.log(salesOverview)
 
-  const [data,setData]=useState();
+  const [salesOverview,setsalesOverview]=useState();
+
+
+
 
   const handleGetInfo=async()=>{
     try{
@@ -153,7 +148,7 @@ const Dashboard = ({ isMobile }) => {
     dispatch(setGraph(response.data.data.graphs))
     setInventorySummary(response.data.data.inventorySummary)
     setProductSummary(response.data.data.productSummary)
-    console.log(response.data.data.purchaseOverview)
+  
    
     setTopProducts(response.data.data.topProducts)
  

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import styles from "./Layout.module.css";
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
@@ -19,13 +19,13 @@ import {
   setIndividualProduct,
   setOrderModal,
   setUploadCSVFileModal,
-  setInvoiceProductDetails,
+  
   setInvoiceModal,
 } from "./redux/slices/modalSlice";
 import Icon from "./assets/icon.svg";
 
 import axios from "axios";
-import { setProductID, setTopProducts } from "./redux/slices/productsSlice";
+import { setProductID } from "./redux/slices/productsSlice";
 import Setting from "./components/Setting";
 const Layout = ({ isMobile }) => {
   const { invoiceProducts, invoiceAmount, invoiceReference, dueDate } =

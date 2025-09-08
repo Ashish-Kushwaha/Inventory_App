@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import styles from "./Product.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -13,7 +13,7 @@ import axios from "axios";
 import { setProductID } from "../redux/slices/productsSlice";
 import Info from "../assets/Info.svg";
 const Product = ({ isMobile }) => {
-  const [tableContent, setTableContent] = useState([]);
+
   const [addProduct, setAddProduct] = useState({
     productName: "",
     productImage: null,
@@ -215,7 +215,7 @@ const Product = ({ isMobile }) => {
   };
   useEffect(() => {
     getPageInfo(1);
-  }, [tableContent]);
+  }, []);
   function formatDateToDDMMYY(isoDateString) {
     const date = new Date(isoDateString);
 

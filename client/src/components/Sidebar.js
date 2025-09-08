@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import styles from "./Sidebar.module.css";
 import Logo from "../assets/Logo2.svg";
 import Home from "../assets/Home.svg";
@@ -6,19 +6,18 @@ import Product from "../assets/Product.svg";
 import Invoice from "../assets/Invoice.svg";
 import Statistics from "../assets/Statistics.svg";
 import Setting from "../assets/Setting.svg";
-import { useLocation, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 
 const Sidebar = ({isMobile}) => {
   const [navText,setNavText]=useState("Home");
   const parUser=JSON.parse(localStorage.getItem("user"));
   const [firstName, ...lastParts] = (parUser?.loggedInUser.fullName || "").split(" ");
-  const location=useLocation();
+
   const navigate=useNavigate();
-  const home=location.pathname==="/";
-  const product=location.pathname.startsWith("/product");
-  const invoice=location.pathname.startsWith("/invoices");
-  const statistics=location.pathname.startsWith("/statistics");
+
+
+ 
   return (
     <div className={styles["sidebar-container"]}>
       {

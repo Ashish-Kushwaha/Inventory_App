@@ -1,12 +1,11 @@
-import React from 'react'
+
 import styles from "./Setting.module.css"
 import { toast } from "react-toastify";
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+
 import axios from 'axios';
 const Setting = ({setIsLoggedIn}) => {
-    const [settingUser,setsettingUser]=useState({})
-  // console.log(settingUser) 
+
   const [edit,setEdit]=useState(true);
   const [account,setAccount]=useState(false)
   const [loading, setLoading] = useState(false);
@@ -77,13 +76,7 @@ const Setting = ({setIsLoggedIn}) => {
 
     })
   }
-   const getInitials=(name)=>{
-      const words=name.trim().split(" ");
-      if(words.length===1){
-        return words[0][0].toUpperCase();
-      }  
-      return (words[0][0]+words[1][0]).toUpperCase(); 
-    }
+
   const handleSave= async()=>{
     const flag=validateUser();
     if(flag){
@@ -116,7 +109,7 @@ const Setting = ({setIsLoggedIn}) => {
       confirmPassword:parUser?.password,
     })
    },[])
-  //  setsettingUser(parUser)
+
   console.log(user);
    const handleLogout=async()=>{
 

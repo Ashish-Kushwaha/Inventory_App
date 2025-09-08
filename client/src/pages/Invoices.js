@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import styles from "./Invoices.module.css";
 import { useDispatch } from "react-redux";
 import { setInvoiceModal } from "../redux/slices/modalSlice";
@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 const Invoices = ({ isMobile }) => {
   const [invoiceModalId, setInvoiceModalId] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [tableContent, setTableContent] = useState([]);
+
   const [viewInvoice, setViewInvoice] = useState(false);
   const [deleteInvoice, setDeleteInvoice] = useState(false);
   const [paidInvoice, setPaidInvoice] = useState(false);
@@ -95,13 +95,13 @@ const Invoices = ({ isMobile }) => {
     }
   };
   const [paginatedInvoices, setPaginatedInvoices] = useState({});
-  console.log(paginatedInvoices);
+
   const [recentTransactions, setrecentTransactions] = useState(0);
-  // console.log(recentTransactions)
+
   const [summary, setsummary] = useState({});
-  // console.log(summary)
+
   const [last7DaysOverview, setlast7DaysOverview] = useState({});
-  // console.log(last7DaysOverview[0])
+
   const getPageInfo = async (page) => {
     try {
       const response = await axios.get(
@@ -131,7 +131,7 @@ const Invoices = ({ isMobile }) => {
 }
   useEffect(() => {
     getPageInfo(1);
-  }, [tableContent]);
+  }, []);
   const dispatch = useDispatch();
 
   return (
@@ -347,13 +347,7 @@ const Invoices = ({ isMobile }) => {
         </div>
       </div>
 
-      {/* <div className={styles["individual-product"]}>
-            <div className={styles["nav-bar"]}>
-              <p>Add Product</p>
-              <img/>
-              <p>Individual Product</p>
-            </div>
-          </div> */}
+     
     </div>):( <div className={styles["invoice-container"]}>
       <div className={styles["overall-invoice"]}>
         <p>Overall Invoice</p>
@@ -418,7 +412,7 @@ const Invoices = ({ isMobile }) => {
       <div className={styles["products"]}>
         <div className={styles["text-button-container"]}>
           <p>Invoices</p>
-          {/* <button onClick={()=>dispatch(setAddProductModal(true))}>Add Product</button> */}
+          
         </div>
         <table >
           <thead>

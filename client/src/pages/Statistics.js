@@ -1,7 +1,7 @@
 
 
-import React, { useEffect, useState } from "react";
-// import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import  { useEffect, useState } from "react";
+
 import styles from "./Statistics.module.css"; 
 import Credit_Card from "../assets/Credit-Card.svg";
 import Activity from "../assets/Activity.svg";
@@ -29,12 +29,12 @@ const Statistics = ({isMobile}) => {
     const {graph}=useSelector((state)=>state.dashboard)
     const {topProducts}=useSelector((state)=>state.products)
     
-  const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-    return result;
-  };
+  // const reorder = (list, startIndex, endIndex) => {
+  //   const result = Array.from(list);
+  //   const [removed] = result.splice(startIndex, 1);
+  //   result.splice(endIndex, 0, removed);
+  //   return result;
+  // };
 
   const handleSaveLayout= async(mainTiles,smallTiles)=>{
     try{

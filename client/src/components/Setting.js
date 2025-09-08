@@ -91,7 +91,7 @@ const Setting = ({setIsLoggedIn}) => {
     }
       setLoading(true)
       try{
-        const response= await axios.patch("http://localhost:8000/api/v1/users/edit-user-info",{firstName:user.fullName,lastName:user.lastName,email:user.email,password:user.password,confirmPassword:user.confirmPassword},{
+        const response= await axios.patch("https://inventory-app-ovzh.onrender.com/api/v1/users/edit-user-info",{firstName:user.fullName,lastName:user.lastName,email:user.email,password:user.password,confirmPassword:user.confirmPassword},{
   withCredentials: true  
 });
         console.log(response.data.data.user);
@@ -122,7 +122,7 @@ const Setting = ({setIsLoggedIn}) => {
 
       setLoading(true)
       try{
-        const response= await axios.post("http://localhost:8000/api/v1/users/logout",{},{
+        const response= await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/logout",{},{
   withCredentials: true  
 });  
         console.log(response)

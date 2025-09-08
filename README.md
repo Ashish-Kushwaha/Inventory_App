@@ -28,3 +28,5 @@ MongoDB
 Demo Credentials
 youremail@gmail.com
 yourpassword  :- password should be minimun 8 characters
+
+keep paid Invoices to track Sales 

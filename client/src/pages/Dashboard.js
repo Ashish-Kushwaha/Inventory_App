@@ -46,7 +46,7 @@ const Dashboard = ({ isMobile }) => {
  
   const handleSaveLayout= async(overview,summary)=>{
    try{
-     const response=await axios.put("http://localhost:8000/api/v1/home/save-layout",{overview,summary},{
+     const response=await axios.put("https://inventory-app-ovzh.onrender.com/api/v1/home/save-layout",{overview,summary},{
   withCredentials: true  
 })
     //  toast.success("Layout Saved Successfully!")
@@ -61,7 +61,7 @@ const Dashboard = ({ isMobile }) => {
   }
   const handleGetLayout= async()=>{
     try{
-      const respone=await axios.get("http://localhost:8000/api/v1/home/get-layout",{
+      const respone=await axios.get("https://inventory-app-ovzh.onrender.com/api/v1/home/get-layout",{
   withCredentials: true  
 })
       console.log(respone.data.overview);
@@ -139,7 +139,7 @@ const Dashboard = ({ isMobile }) => {
   const handleGetInfo=async()=>{
     try{
         const response = await axios.get(
-      "http://localhost:8000/api/v1/home/get-page-info",{
+      "https://inventory-app-ovzh.onrender.com/api/v1/home/get-page-info",{
   withCredentials: true  
 }
     );

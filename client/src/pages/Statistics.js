@@ -38,7 +38,7 @@ const Statistics = ({isMobile}) => {
 
   const handleSaveLayout= async(mainTiles,smallTiles)=>{
     try{
-       const respone=await axios.put("http://localhost:8000/api/v1/statistics/save-layout",{mainTiles,smallTiles},{
+       const respone=await axios.put("https://inventory-app-ovzh.onrender.com/api/v1/statistics/save-layout",{mainTiles,smallTiles},{
   withCredentials: true  
 })
       // toast.success("Layout Saved Successfully")
@@ -54,7 +54,7 @@ const Statistics = ({isMobile}) => {
   console.log(statistics)
   const handleGetDetails=async()=>{
     try{
-     const response=await axios.get("http://localhost:8000/api/v1/statistics/get-details",{
+     const response=await axios.get("https://inventory-app-ovzh.onrender.com/api/v1/statistics/get-details",{
   withCredentials: true  
 })
       setStatistics(response.data.data.statistics);
@@ -66,7 +66,7 @@ const Statistics = ({isMobile}) => {
   }
    const handleGetTiles=async()=>{
     try{
-      const response=await axios.get("http://localhost:8000/api/v1/statistics/get-layout",{
+      const response=await axios.get("https://inventory-app-ovzh.onrender.com/api/v1/statistics/get-layout",{
   withCredentials: true  
 })
       if(response.data.mainTiles.length>0){

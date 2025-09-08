@@ -74,7 +74,7 @@ const Signup = ({isMobile}) => {
    }
    setLoading(true)
    try{
-     const response= await axios.post("http://localhost:8000/api/v1/users/register",user,{ withCredentials: true })
+     const response= await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/register",user,{ withCredentials: true })
      console.log(response);
    navigate("/login")
    toast.success("Signed Up Successfully!! Please Login")

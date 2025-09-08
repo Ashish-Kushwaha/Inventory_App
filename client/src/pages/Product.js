@@ -145,7 +145,7 @@ const Product = ({ isMobile }) => {
       data.append("unit", addProduct.unit);
 
       const response = await axios.post(
-        "http://localhost:8000/api/v1/products/add-product",
+        "https://inventory-app-ovzh.onrender.com/api/v1/products/add-product",
         data,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -194,7 +194,7 @@ const Product = ({ isMobile }) => {
     try {
       console.log("page", page);
       const response = await axios.get(
-        `http://localhost:8000/api/v1/products/get-product-page-info/?page=${page}`,{
+        `https://inventory-app-ovzh.onrender.com/api/v1/products/get-product-page-info/?page=${page}`,{
   withCredentials: true  
 }
       );

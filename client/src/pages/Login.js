@@ -77,7 +77,7 @@ const Login = ({setIsLoggedIn,isMobile}) => {
     }
      setLoading(true);
      try{
-    const response= await axios.post("http://localhost:8000/api/v1/users/login",loginDetails, { withCredentials: true })
+    const response= await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/login",loginDetails, { withCredentials: true })
    
     localStorage.setItem('user',JSON.stringify(response.data.data.user));
     setLoginDetails({email:"",password:""})
@@ -116,7 +116,7 @@ const Login = ({setIsLoggedIn,isMobile}) => {
    }
    setLoading(true);
    try{
-    const response=  await axios.post("http://localhost:8000/api/v1/users/send-mail",{email}, { withCredentials: true });
+    const response=  await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/send-mail",{email}, { withCredentials: true });
       console.log(response);
    setEmailContainer(false);
    setOtpC(true)
@@ -153,7 +153,7 @@ const Login = ({setIsLoggedIn,isMobile}) => {
      try{
         const email=JSON.parse(localStorage.getItem("emailForResetPassword"));
         
-    const response=  await axios.post("http://localhost:8000/api/v1/users/verify-otp",{email:email,otp:otpvalue}, { withCredentials: true });
+    const response=  await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/verify-otp",{email:email,otp:otpvalue}, { withCredentials: true });
     console.log(response);
     setOtpC(false);
     setOtpvalue("");
@@ -202,7 +202,7 @@ const Login = ({setIsLoggedIn,isMobile}) => {
     try{
       const email=localStorage.getItem("emailForResetPassword");
       const parEmail=JSON.parse(email)
-      const response=  await axios.post("http://localhost:8000/api/v1/users/reset-password",{email:parEmail,password:passwordDetails.password,confirmPassword:passwordDetails.confirmPassword}, { withCredentials: true });
+      const response=  await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/reset-password",{email:parEmail,password:passwordDetails.password,confirmPassword:passwordDetails.confirmPassword}, { withCredentials: true });
     console.log(response);
     localStorage.removeItem("emailForResetPassword");
     setResetPassword(false)

@@ -24,7 +24,7 @@ const Invoices = ({ isMobile }) => {
     setLoading(true);
     try {
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/invoices/paid/${invoiceID}`,{},{
+        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/paid/${invoiceID}`,{},{
   withCredentials: true  
 }
       );
@@ -42,7 +42,7 @@ const Invoices = ({ isMobile }) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/v1/invoices/paid/?page=${page}`,{
+        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/paid/?page=${page}`,{
   withCredentials: true  
 }
       );
@@ -60,7 +60,7 @@ const Invoices = ({ isMobile }) => {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:8000/api/v1/invoices/delete/${invoiceID}`,{
+        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/delete/${invoiceID}`,{
   withCredentials: true  
 }
       );
@@ -79,7 +79,7 @@ const Invoices = ({ isMobile }) => {
     setLoading(true);
     try {
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/invoices/view/${invoiceID}`,{},{
+        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/view/${invoiceID}`,{},{
   withCredentials: true  
 }
       );
@@ -105,7 +105,7 @@ const Invoices = ({ isMobile }) => {
   const getPageInfo = async (page) => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/v1/invoices/get-invoice-page-info/?page=${page}`,{
+        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/get-invoice-page-info/?page=${page}`,{
   withCredentials: true  
 }
       );

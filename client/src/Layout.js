@@ -37,7 +37,7 @@ const Layout = ({ isMobile }) => {
       setLoading(true);
       try{
        const response = await axios.get(
-      `http://localhost:8000/api/v1/invoices/download/${invoiceid}`,
+      `https://inventory-app-ovzh.onrender.com/api/v1/invoices/download/${invoiceid}`,
       {
         responseType: "blob",
 
@@ -101,7 +101,7 @@ const Layout = ({ isMobile }) => {
       const data = new FormData();
     data.append("file", file);
     const response = await axios.post(
-      "http://localhost:8000/api/v1/products/many-products",
+      "https://inventory-app-ovzh.onrender.com/api/v1/products/many-products",
       data,
       {
         headers: { "Content-Type": "multipart/form-data" },
@@ -132,7 +132,7 @@ const Layout = ({ isMobile }) => {
     setLoading(true);
     try{
       const response = await axios.patch(
-      `http://localhost:8000/api/v1/products/decrease-quantity/${productID}`,
+      `https://inventory-app-ovzh.onrender.com/api/v1/products/decrease-quantity/${productID}`,
       { decreaseBy },
       {
         withCredentials: true,

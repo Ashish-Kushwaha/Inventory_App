@@ -93,10 +93,17 @@ const loginUser = asyncHandler(async (req, res) => {
   //   secure: process.env.NODE_ENV === "production",
   //   sameSite: "lax"
   // };
+  //  res.cookie('test', '12345', {
+  //   httpOnly: true,
+  //   secure: true,
+  //   sameSite: 'none',
+  //   maxAge: 1000 * 60 * 60 * 24
+  // });
+  
   const options = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    secure: true,
+    sameSite: "none",
     maxAge: 1000 * 60 * 60 * 24 * 7
   };
   return res

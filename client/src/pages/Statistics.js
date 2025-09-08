@@ -38,7 +38,7 @@ const Statistics = ({isMobile}) => {
 
   const handleSaveLayout= async(mainTiles,smallTiles)=>{
     try{
-       const respone=await axios.put("https://inventory-app-ovzh.onrender.com/api/v1/statistics/save-layout",{mainTiles,smallTiles},{
+       await axios.put("https://inventory-app-ovzh.onrender.com/api/v1/statistics/save-layout",{mainTiles,smallTiles},{
   withCredentials: true  
 })
       // toast.success("Layout Saved Successfully")
@@ -236,7 +236,7 @@ const Statistics = ({isMobile}) => {
                               </div>
                               <div className={styles["img"]}>
                                 {
-                                  product?.productImage ?<img src={product.productImage || ""} alt="image"/>:""
+                                  product?.productImage ?<img src={product.productImage} alt="imge"/>:""
                                 }
                                 
                               </div>

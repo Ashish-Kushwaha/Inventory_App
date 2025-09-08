@@ -1,5 +1,5 @@
 // src/features/auth/authSlice.js
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 
 

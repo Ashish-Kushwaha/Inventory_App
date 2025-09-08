@@ -46,7 +46,7 @@ const Dashboard = ({ isMobile }) => {
  
   const handleSaveLayout= async(overview,summary)=>{
    try{
-     const response=await axios.put("https://inventory-app-ovzh.onrender.com/api/v1/home/save-layout",{overview,summary},{
+     await axios.put("https://inventory-app-ovzh.onrender.com/api/v1/home/save-layout",{overview,summary},{
   withCredentials: true  
 })
     //  toast.success("Layout Saved Successfully!")
@@ -64,8 +64,7 @@ const Dashboard = ({ isMobile }) => {
       const respone=await axios.get("https://inventory-app-ovzh.onrender.com/api/v1/home/get-layout",{
   withCredentials: true  
 })
-      console.log(respone.data.overview);
-      console.log(respone.data.summary);
+     
       if(respone.data?.overview?.length>0)
       {
         setOverview(respone.data.overview)
@@ -81,42 +80,11 @@ const Dashboard = ({ isMobile }) => {
       toast.error("Layougt didn't Fetched")
     }
   }
-  useEffect(()=>{
-     handleGetLayout();
-  },[])
   
-  const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-    return result;
-  };
 
-  // Handle drag end
-  const onDragEnd = (result) => {
-    if (!result.destination) return;
-    const { source, destination } = result;
 
-    if (
-      source.droppableId === "overview" &&
-      destination.droppableId === "overview"
-    ) {
-      // setFinalOverview(reorder(overview, source.index, destination.index));
-      const updated=reorder(overview, source.index, destination.index)
-      setOverview(updated);
-      handleSaveLayout(updated,summary)
-    }
 
-    if (
-      source.droppableId === "summary" &&
-      destination.droppableId === "summary"
-    ) {
-      // setFinalSummary(reorder(summary, source.index, destination.index));
-      const updated=reorder(summary, source.index, destination.index)
-      setSummary(updated);
-      handleSaveLayout(overview,updated)
-    }
-  };
+
   const {graph}=useSelector((state)=>state.dashboard)
   const {topProducts}=useSelector((state)=>state.products)
   
@@ -165,9 +133,6 @@ const Dashboard = ({ isMobile }) => {
     }
     
   }
-  useEffect(()=>{
-     handleGetInfo();
-  },[])
    const [overview, setOverview] = useState([
     { id: "sales-overview", label: "Sales Overview" },
     { id: "purchase-overview", label: "Purchase Overview" },
@@ -180,6 +145,11 @@ const Dashboard = ({ isMobile }) => {
     { id: "product-summary", label: "Product Summary" },
     { id: "top-product", label: "Top Product" },
   ]);
+  useEffect(()=>{
+     handleGetInfo();
+     handleGetLayout();
+  },[overview,summary])
+  
 
 
   const [dragInfo, setDragInfo] = useState(null);
@@ -379,7 +349,7 @@ const Dashboard = ({ isMobile }) => {
                               </div>
                               <div className={styles["img"]}>
                                 {
-                                  product?.productImage ?<img src={product.productImage || ""} alt="image"/>:""
+                                  product?.productImage ?<img src={product.productImage || ""} alt="ime"/>:""
                                 }
                                 
                               </div>
@@ -552,7 +522,7 @@ const Dashboard = ({ isMobile }) => {
                               <div className={styles["img"]}>
                                 
                                 {
-                                  product?.productImage ?<img src={product.productImage || ""} alt="image"/>:""
+                                  product?.productImage ?<img src={product.productImage || ""} alt="imge"/>:""
                                 }
                               </div>
                             </div>

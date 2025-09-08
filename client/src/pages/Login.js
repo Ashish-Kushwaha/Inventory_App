@@ -354,7 +354,7 @@ const Login = ({setIsLoggedIn,isMobile}) => {
           <img className={styles["frame"]} src={Frame} alt="frame" />
         </div>
           </>
-        }
+        } 
         {
           emailContainer &&<div className={styles["email-image"]}>
             <img className={styles["side-Woman"]} src={Woman} alt="Woman" />

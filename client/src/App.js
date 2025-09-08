@@ -9,7 +9,7 @@ import Product from './pages/Product';
 import Invoices from './pages/Invoices';
 import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import Setting from './components/Setting';
 import PrivateRoute from './components/PrivateRoute';
 

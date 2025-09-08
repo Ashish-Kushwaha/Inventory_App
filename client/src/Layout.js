@@ -100,7 +100,7 @@ const Layout = ({ isMobile }) => {
     try{
       const data = new FormData();
     data.append("file", file);
-    const response = await axios.post(
+     await axios.post(
       "https://inventory-app-ovzh.onrender.com/api/v1/products/many-products",
       data,
       {

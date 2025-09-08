@@ -1,8 +1,6 @@
 // src/features/dashboard/dashboardSlice.js
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 
-const API = "/api/dashboard";
 
 
 
@@ -15,7 +13,7 @@ const dashboardSlice = createSlice({
   },
   reducers: {
     setGraph: (state, action) => { 
-      // console.log(action.payload)
+
       state.graph = action.payload;
     },
   },

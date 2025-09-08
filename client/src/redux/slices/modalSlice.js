@@ -39,7 +39,7 @@ const modalSlice=createSlice({
         }
   
     }
-})
+}) 
 
 export const {setAddProductModal,setUploadCSVFileModal,setInvoiceModal,setOrderModal,setIndividualProduct,setInvoiceProductDetails}=modalSlice.actions;
 export default modalSlice.reducer;

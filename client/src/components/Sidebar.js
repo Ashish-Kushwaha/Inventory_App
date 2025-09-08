@@ -12,7 +12,7 @@ import {  useNavigate } from "react-router-dom";
 const Sidebar = ({isMobile}) => {
   const [navText,setNavText]=useState("Home");
   const parUser=JSON.parse(localStorage.getItem("user"));
-  const [firstName, ...lastParts] = (parUser?.loggedInUser.fullName || "").split(" ");
+  const [firstName] = (parUser?.loggedInUser.fullName || "").split(" ");
 
   const navigate=useNavigate();
 
@@ -56,10 +56,10 @@ const Sidebar = ({isMobile}) => {
       }}>
           {
             isMobile?(<div className={styles["img"]}>
-              <img src={Product} />
+              <img src={Product} alt="product"/>
             </div>
            ):(<><div className={styles["img"]}>
-              <img src={Product} />
+              <img src={Product}  alt="product"/>
             </div>
             <span>Product</span></>)
           }

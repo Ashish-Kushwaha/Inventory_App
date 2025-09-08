@@ -38,23 +38,7 @@ const Invoices = ({ isMobile }) => {
       setLoading(false);
     }
   };
-  const handlePagination = async (page) => {
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/paid/?page=${page}`,{
-  withCredentials: true  
-}
-      );
-      console.log(response.data);
-      toast.success("Invoices Fetched Successfully");
-    } catch (err) {
-      console.log(err);
-      toast.error("Something went wrong");
-    } finally {
-      setLoading(false);
-    }
-  };
+ 
 
   const handleConfirmDelete = async (invoiceID) => {
     setLoading(true);

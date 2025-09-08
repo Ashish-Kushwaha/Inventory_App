@@ -1,5 +1,5 @@
 // src/features/products/productsSlice.js
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 
 const productsSlice = createSlice({

@@ -1,7 +1,7 @@
-  import React, { useEffect, useState } from 'react'
+  import  {  useEffect, useState } from 'react'
   import styles from "./Settings.module.css"
   import { toast } from "react-toastify";
-  import { useSelector } from 'react-redux';
+
   import axios from 'axios';
   const Settings = ({isMobile,setIsLoggedIn}) => { 
 
@@ -100,10 +100,9 @@
         setLoading(false)
       }
     }
-    const parUser=JSON.parse(localStorage.getItem("user"));
-    console.log(parUser)
-    useEffect(()=>{
-      const [firstName, ...lastParts] = (parUser?.loggedInUser.fullName || "").split(" ");
+   useEffect(()=>{
+     const parUser=JSON.parse(localStorage.getItem("user"));
+     const [firstName, ...lastParts] = (parUser?.loggedInUser.fullName || "").split(" ");
       setUser({
         fullName:firstName||"",
         lastName:lastParts.join(" ") || "",
@@ -111,7 +110,8 @@
         password:parUser?.password,
         confirmPassword:parUser?.password,
       })
-    },[])
+   },[])
+    
 
     console.log(user);
     const handleLogout=async()=>{

@@ -5,8 +5,8 @@ import {  useEffect, useState } from 'react';
 
 import axios from 'axios';
 const Setting = ({setIsLoggedIn}) => {
-  // const API_URL = 'https://inventory-app-ovzh.onrender.com';
-  const API_URL = 'http://localhost:8000';
+  const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  // const API_URL = 'http://localhost:8000';
   const [edit,setEdit]=useState(true);
   const [account,setAccount]=useState(false)
   const [loading, setLoading] = useState(false);
@@ -86,8 +86,10 @@ const Setting = ({setIsLoggedIn}) => {
       setLoading(true)
       try{
         const response= await axios.patch(`${API_URL}/api/v1/users/edit-user-info`,{firstName:user.fullName,lastName:user.lastName,email:user.email,password:user.password,confirmPassword:user.confirmPassword},{
-  withCredentials: true  
-});
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    });
 //         const response= await axios.patch("https://inventory-app-ovzh.onrender.com/api/v1/users/edit-user-info",{firstName:user.fullName,lastName:user.lastName,email:user.email,password:user.password,confirmPassword:user.confirmPassword},{
 //   withCredentials: true  
 // });
@@ -120,13 +122,17 @@ const Setting = ({setIsLoggedIn}) => {
       setLoading(true)
       try{
         const response= await axios.post(`${API_URL}/api/v1/users/logout`,{},{
-  withCredentials: true  
-});  
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    });  
 //         const response= await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/logout",{},{
 //   withCredentials: true  
 // });  
         console.log(response)
         localStorage.removeItem("user");
+        localStorage.removeItem("authToken");
+       
         setIsLoggedIn(false)
         
       toast.success("Logged Out Successfully")

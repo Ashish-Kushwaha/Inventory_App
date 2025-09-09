@@ -30,7 +30,7 @@ import Setting from "./components/Setting";
 const Layout = ({ isMobile }) => {
   const API_URL = 'https://inventory-app-ovzh.onrender.com';
   // const API_URL = 'http://localhost:8000';
-  const { invoiceProducts, invoiceAmount, invoiceReference, dueDate } =
+  const { invoiceProducts, invoiceAmount, invoiceReference, dueDate,invId } =
     useSelector((state) => state.invoices);
     const [loading, setLoading] = useState(false);
   const { invoiceID } = useSelector((state) => state.invoices);
@@ -41,11 +41,24 @@ const Layout = ({ isMobile }) => {
        const response = await axios.get(
       `${API_URL}/api/v1/invoices/download/${invoiceid}`,
       {
+        
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      },
+    
         responseType: "blob",
-
-        withCredentials: true,
       }
     );
+    //    const response = await axios.get(
+    //   `${API_URL}/api/v1/invoices/download/${invoiceid}`,
+    //   {
+        
+    //     responseType: "blob",
+
+    //     withCredentials: true,
+    //   }
+    // );
+    
     
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement("a");
@@ -107,10 +120,19 @@ const Layout = ({ isMobile }) => {
       `${API_URL}/api/v1/products/many-products`,
       data,
       {
-        headers: { "Content-Type": "multipart/form-data" },
-        withCredentials: true,
+        headers: { "Authorization": `Bearer ${localStorage.getItem("authToken")}`, "Content-Type": "multipart/form-data" },
+        
       }
     );
+    //  await axios.post(
+    //   `${API_URL}/api/v1/products/many-products`,
+    //   data,
+    //   {
+    //     headers: {  "Content-Type": "multipart/form-data" },
+    //     withCredentials: true,
+    //   }
+    // );
+    
    
     dispatch(setUploadCSVFileModal(false));
     setFile(null);
@@ -136,9 +158,18 @@ const Layout = ({ isMobile }) => {
       `${API_URL}/api/v1/products/decrease-quantity/${productID}`,
       { decreaseBy },
       {
-        withCredentials: true,
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
       }
+    }
     );
+    //   const response = await axios.patch(
+    //   `${API_URL}/api/v1/products/decrease-quantity/${productID}`,
+    //   { decreaseBy },
+    //   {
+    //     withCredentials: true,
+    //   }
+    // );
   
     console.log(response.data.data);
     dispatch(setOrderModal(false));
@@ -295,7 +326,7 @@ const Layout = ({ isMobile }) => {
                               <span
                                 style={{ fontSize: ".7rem", color: "#636a76" }}
                               >
-                                {invoiceID}
+                                {invId}
                               </span>
                             </div>
                             <div>

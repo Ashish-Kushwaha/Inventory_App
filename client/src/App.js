@@ -16,7 +16,7 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
  
      const [isLoggedIn, setIsLoggedIn] = useState(() => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("authToken"));
   return user ? true : false;
 });
   const [isMobile,setIsMobile]=useState(window.innerWidth <= 430)

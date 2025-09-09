@@ -6,6 +6,7 @@ import Delete from "../assets/Delete.svg";
 import View from "../assets/View.svg";
 import {
   setDueDate,
+  setInvId,
   setInvoiceAmount,
   setInvoiceID, 
   setInvoiceProducts,
@@ -27,8 +28,14 @@ const Invoices = ({ isMobile }) => {
     try {
       const response = await axios.patch(
         `${API_URL}/api/v1/invoices/paid/${invoiceID}`,{},{
-  withCredentials: true  
-}
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
+//       const response = await axios.patch(
+//         `${API_URL}/api/v1/invoices/paid/${invoiceID}`,{},{
+//   withCredentials: true  
+// }
 
       );
       console.log(response.data.data);
@@ -48,9 +55,16 @@ const Invoices = ({ isMobile }) => {
     try {
       const response = await axios.delete(
         `${API_URL}/api/v1/invoices/delete/${invoiceID}`,{
-  withCredentials: true  
-}
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
       );
+//       const response = await axios.delete(
+//         `${API_URL}/api/v1/invoices/delete/${invoiceID}`,{
+//   withCredentials: true  
+// }
+//       );
 
       console.log(response.data);
       getPageInfo();
@@ -68,9 +82,16 @@ const Invoices = ({ isMobile }) => {
     try {
       const response = await axios.patch(
         `${API_URL}/api/v1/invoices/view/${invoiceID}`,{},{
-  withCredentials: true  
-}
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
       );
+//       const response = await axios.patch(
+//         `${API_URL}/api/v1/invoices/view/${invoiceID}`,{},{
+//   withCredentials: true  
+// }
+//       );
 
 
       // getPageInfo();
@@ -94,9 +115,16 @@ const Invoices = ({ isMobile }) => {
     try {
       const response = await axios.get(
         `${API_URL}/api/v1/invoices/get-invoice-page-info/?page=${page}`,{
-  withCredentials: true  
-}
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
       );
+//       const response = await axios.get(
+//         `${API_URL}/api/v1/invoices/get-invoice-page-info/?page=${page}`,{
+//   withCredentials: true  
+// }
+//       );
 
       console.log(response.data.data);
       setPaginatedInvoices(response.data.data.paginatedInvoices);
@@ -210,6 +238,7 @@ const Invoices = ({ isMobile }) => {
                             dispatch(setInvoiceModal(true));
                             handleView(inv._id);
                             dispatch(setInvoiceID(inv._id));
+                            dispatch(setInvId(inv.invoiceID))
                           }}/>
                           <img src={Delete} alt="delete" onClick={()=>{setInvoiceModalId(inv._id);
                             setDeleteInvoice(true);
@@ -259,6 +288,7 @@ const Invoices = ({ isMobile }) => {
                                     handleView(inv._id);
                                     dispatch(setInvoiceID(inv._id));
                                     dispatch(setInvoiceProducts(inv.products));
+                                    dispatch(setInvId(inv.invoiceID))
                                   }}
                                 >
                                   <img src={View} alt="view" />
@@ -486,6 +516,7 @@ const Invoices = ({ isMobile }) => {
                                     dispatch(setInvoiceReference(inv?.referenceNumber||0));
                                     dispatch(setDueDate(inv?.dueDate||0));
                                     console.log(inv?.products);
+                                    dispatch(setInvId(inv?.invoiceID))
                                     console.log(inv?._id)
                                   }}
                                 >

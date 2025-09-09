@@ -8,8 +8,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 const Signup = ({isMobile}) => {
   const [user,setUser]=useState({fullName:"",email:"",password:"",confirmPassword:""})
-  // const API_URL = 'https://inventory-app-ovzh.onrender.com';
-  const API_URL = 'http://localhost:8000';
+  const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  // const API_URL = 'http://localhost:8000';
   const navigate=useNavigate();
   const Handlechange=(e)=>{
     const {name,value} =e.target;

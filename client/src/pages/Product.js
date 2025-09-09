@@ -150,10 +150,17 @@ const Product = ({ isMobile }) => {
         `${API_URL}/api/v1/products/add-product`,
         data,
         {
-          headers: { "Content-Type": "multipart/form-data" },
-          withCredentials: true,
+          headers: { "Authorization": `Bearer ${localStorage.getItem("authToken")}`,"Content-Type": "multipart/form-data" },
         }
       );
+      // const response = await axios.post(
+      //   `${API_URL}/api/v1/products/add-product`,
+      //   data,
+      //   {
+      //     headers: { "Content-Type": "multipart/form-data" },
+      //     withCredentials: true,
+      //   }
+      // );
      
       console.log(response);
       dispatch(setIndividualProduct(false));
@@ -198,9 +205,16 @@ const Product = ({ isMobile }) => {
       console.log("page", page);
       const response = await axios.get(
         `${API_URL}/api/v1/products/get-product-page-info/?page=${page}`,{
-  withCredentials: true  
-}
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
       );
+//       const response = await axios.get(
+//         `${API_URL}/api/v1/products/get-product-page-info/?page=${page}`,{
+//   withCredentials: true  
+// }
+//       );
 
 
       setPagination(response.data.data.pagination);

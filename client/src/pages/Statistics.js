@@ -34,8 +34,13 @@ const Statistics = ({isMobile}) => {
   const handleSaveLayout= async(mainTiles,smallTiles)=>{
     try{
        await axios.put(`${API_URL}/api/v1/statistics/save-layout`,{mainTiles,smallTiles},{
-  withCredentials: true  
-})
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    })
+//        await axios.put(`${API_URL}/api/v1/statistics/save-layout`,{mainTiles,smallTiles},{
+//   withCredentials: true  
+// })
 
     }catch(err){
       console.log(err);
@@ -50,8 +55,13 @@ const Statistics = ({isMobile}) => {
   const handleGetDetails=async()=>{
     try{
      const response=await axios.get(`${API_URL}/api/v1/statistics/get-details`,{
-  withCredentials: true  
-})
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    })
+//      const response=await axios.get(`${API_URL}/api/v1/statistics/get-details`,{
+//   withCredentials: true  
+// })
 
       setStatistics(response.data.data.statistics);
       toast.success("Page Info Fetched Successfully")
@@ -63,8 +73,13 @@ const Statistics = ({isMobile}) => {
    const handleGetTiles=async()=>{
     try{
       const response=await axios.get(`${API_URL}/api/v1/statistics/get-layout`,{
-  withCredentials: true  
-})
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    })
+//       const response=await axios.get(`${API_URL}/api/v1/statistics/get-layout`,{
+//   withCredentials: true  
+// })
 
       if(response.data.mainTiles.length>0){
         setMainTiles(response.data.mainTiles)

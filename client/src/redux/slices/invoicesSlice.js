@@ -12,6 +12,7 @@ const invoicesSlice = createSlice({
     invoiceAmount:0,
     invoiceReference:"",
     dueDate:"",
+    invId:"",
   },
   reducers: {
     setInvoiceID:(state,action)=>{
@@ -28,10 +29,13 @@ const invoicesSlice = createSlice({
     },
     setDueDate:(state,action)=>{
       state.dueDate=action.payload
+    },
+    setInvId:(state,action)=>{
+      state.invId=action.payload
     }
   },
   
 });
-export const {setInvoiceID,setInvoiceProducts,setInvoiceAmount,setInvoiceReference,setDueDate}=invoicesSlice.actions;
+export const {setInvoiceID,setInvoiceProducts,setInvoiceAmount,setInvoiceReference,setDueDate,setInvId}=invoicesSlice.actions;
 
 export default invoicesSlice.reducer;

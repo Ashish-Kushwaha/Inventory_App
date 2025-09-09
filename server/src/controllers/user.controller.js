@@ -128,17 +128,15 @@ const loginUser = asyncHandler(async (req, res) => {
 //   path: '/',                 // Default path
 //   maxAge: 24 * 60 * 60 * 1000, // Example: cookie valid for 1 day
 // }
-const options = {
-    httpOnly: true,
-    secure: true,
-    sameSite: 'none',
-    path: '/',
-    maxAge: 24 * 60 * 60 * 1000,
-  }
+// const options = {
+//     httpOnly: true,
+//     secure: true,
+//     sameSite: 'none',
+//     path: '/',
+//     maxAge: 24 * 60 * 60 * 1000,
+//   }
   return res
     .status(200)
-    .cookie("accessToken", accessToken, options)
-    .cookie("refreshToken", refreshToken, options)
     .json(
       new ApiResponse(
         200,
@@ -150,6 +148,21 @@ const options = {
         "User logged In Successfully"
       )
     );
+  // return res
+  //   .status(200)
+  //   .cookie("accessToken", accessToken, options)
+  //   .cookie("refreshToken", refreshToken, options)
+  //   .json(
+  //     new ApiResponse(
+  //       200,
+  //       {
+  //         user: { loggedInUser, password },
+  //         accessToken,
+  //         refreshToken,
+  //       },
+  //       "User logged In Successfully"
+  //     )
+  //   );
 });
 
 const logoutUser = asyncHandler(async (req, res) => {
@@ -164,16 +177,19 @@ const logoutUser = asyncHandler(async (req, res) => {
       new: true,
     }
   );
-  const options = {
-    httpOnly: true,
-    secure: true,
-  };
+  // const options = {
+  //   httpOnly: true,
+  //   secure: true,
+  // };
 
   return res
     .status(200)
-    .clearCookie("accessToken", options)
-    .clearCookie("refreshToken", options)
     .json(new ApiResponse(200, {}, "User logged Out Succesfully"));
+  // return res
+  //   .status(200)
+  //   .clearCookie("accessToken", options)
+  //   .clearCookie("refreshToken", options)
+  //   .json(new ApiResponse(200, {}, "User logged Out Succesfully"));
 });
 
 const sendMail = asyncHandler(async (req, res) => {

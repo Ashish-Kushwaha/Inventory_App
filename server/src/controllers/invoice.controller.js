@@ -1,5 +1,5 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
-import mongoose from "mongoose";
+
 
 import { Invoice } from "../models/invoice.model.js";
 
@@ -215,10 +215,10 @@ return  res.status(200).json(new ApiResponse(200,invoice,"Invoice Processed succ
 import PDFDocument from "pdfkit";
 import { format } from "date-fns";
 import "pdfkit-table"; // important to import after pdfkit
-  // console.log(typeof PDFDocument.prototype.table);
+ 
 export const downloadInvoice = asyncHandler(async (req, res) => {
   const { invoiceid } = req.params;
-  // console.log("Generating PDF for invoiceID:", invoiceid);
+  
 
   // Find invoice with products
   const invoice = await Invoice.findById(invoiceid).populate(
@@ -229,8 +229,7 @@ export const downloadInvoice = asyncHandler(async (req, res) => {
   if (!invoice) {
     return res.status(404).json({ message: "Invoice not found" });
   }
-  // console.log(invoice); 
-  // Response headers for download
+ 
   res.setHeader("Content-Disposition", `attachment; filename=${invoiceid}.pdf`);
   res.setHeader("Content-Type", "application/pdf");
 
@@ -259,7 +258,7 @@ export const downloadInvoice = asyncHandler(async (req, res) => {
     `Rs${(item.quantity * item.price).toFixed(2)}`,
   ]),
 };
-    // console.log("Table rows:", table.rows);
+  
     doc.table(table, {
     prepareHeader: () => doc.font("Helvetica-Bold").fontSize(12),
     prepareRow: (row, i) => doc.font("Helvetica").fontSize(10),

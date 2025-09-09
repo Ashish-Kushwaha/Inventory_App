@@ -49,8 +49,13 @@ const Dashboard = ({ isMobile }) => {
   const handleSaveLayout= async(overview,summary)=>{
    try{
      await axios.put(`${API_URL}/api/v1/home/save-layout`,{overview,summary},{
-  withCredentials: true  
-})
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    })
+//      await axios.put(`${API_URL}/api/v1/home/save-layout`,{overview,summary},{
+//   withCredentials: true  
+// })
 
    }catch(err){
      console.log(err);
@@ -64,8 +69,13 @@ const Dashboard = ({ isMobile }) => {
   const handleGetLayout= async()=>{
     try{
       const respone=await axios.get(`${API_URL}/api/v1/home/get-layout`,{
-  withCredentials: true  
-})
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    })
+//       const respone=await axios.get(`${API_URL}/api/v1/home/get-layout`,{
+//   withCredentials: true  
+// })
 
      
       if(respone.data?.overview?.length>0)
@@ -104,11 +114,19 @@ const Dashboard = ({ isMobile }) => {
 
   const handleGetInfo=async()=>{
     try{
+
         const response = await axios.get(
       `${API_URL}/api/v1/home/get-page-info`,{
-  withCredentials: true  
-}
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
     );
+//         const response = await axios.get(
+//       `${API_URL}/api/v1/home/get-page-info`,{
+//   withCredentials: true  
+// }
+//     );
 
 
     dispatch(setTopProducts(response.data.data.topProducts))

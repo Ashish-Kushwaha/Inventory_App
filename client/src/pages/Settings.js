@@ -87,11 +87,16 @@
       }
       setLoading(true)
       try{
-        const response= await axios.patch(`${API_URL}/api/v1/users/edit-user-info`,{firstName:user.fullName,lastName:user.lastName,email:user.email,password:user.password,confirmPassword:user.confirmPassword},{
-  withCredentials: true  
-});
+         await axios.patch(`${API_URL}/api/v1/users/edit-user-info`,{firstName:user.fullName,lastName:user.lastName,email:user.email,password:user.password,confirmPassword:user.confirmPassword},{
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    });
+//         const response= await axios.patch(`${API_URL}/api/v1/users/edit-user-info`,{firstName:user.fullName,lastName:user.lastName,email:user.email,password:user.password,confirmPassword:user.confirmPassword},{
+//   withCredentials: true  
+// });
 
-        console.log(response.data.data.user);
+        
   
       toast.success("User Info Saved Successfully")
       }catch(err){
@@ -114,16 +119,22 @@
    },[])
     
 
-    console.log(user);
+    
     const handleLogout=async()=>{
 
       setLoading(true)
       try{
         const response= await axios.post(`${API_URL}/api/v1/users/logout`,{},{
-  withCredentials: true  
-});  
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("authToken")}`
+      }
+    });  
+//         const response= await axios.post(`${API_URL}/api/v1/users/logout`,{},{
+//   withCredentials: true  
+// });  
  
         console.log(response)
+        localStorage.removeItem("authToken");
         localStorage.removeItem("user");
         setIsLoggedIn(false)
         

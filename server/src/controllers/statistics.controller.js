@@ -4,7 +4,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { Invoice } from "../models/invoice.model.js";
 import {Product} from "../models/product.model.js";
 
-import mongoose from "mongoose";
+
 import { Statistics } from "../models/statistics.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 // Helper to calculate % increase
@@ -133,7 +133,6 @@ export const getStatistics = asyncHandler(async (req, res) => {
 
 const setStatisticsLayout = asyncHandler(async (req, res) => {
   const userId = req.user._id;
-  console.log(userId)
  
   const { mainTiles, smallTiles } = req.body;
 

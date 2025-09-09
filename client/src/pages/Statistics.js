@@ -22,26 +22,21 @@ import Calendar from "../assets/Calendar.svg"
 } from "recharts";
 const Statistics = ({isMobile}) => {
   const [view, setView] = useState("monthly");
-
-  
+  const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  // const API_URL = 'http://localhost:8000';
 
   
     const {graph}=useSelector((state)=>state.dashboard)
     const {topProducts}=useSelector((state)=>state.products)
     
-  // const reorder = (list, startIndex, endIndex) => {
-  //   const result = Array.from(list);
-  //   const [removed] = result.splice(startIndex, 1);
-  //   result.splice(endIndex, 0, removed);
-  //   return result;
-  // };
+  
 
   const handleSaveLayout= async(mainTiles,smallTiles)=>{
     try{
-       await axios.put("https://inventory-app-ovzh.onrender.com/api/v1/statistics/save-layout",{mainTiles,smallTiles},{
+       await axios.put(`${API_URL}/api/v1/statistics/save-layout`,{mainTiles,smallTiles},{
   withCredentials: true  
 })
-      // toast.success("Layout Saved Successfully")
+
     }catch(err){
       console.log(err);
       toast.error("Something went wrong while saving layout")
@@ -54,9 +49,10 @@ const Statistics = ({isMobile}) => {
   console.log(statistics)
   const handleGetDetails=async()=>{
     try{
-     const response=await axios.get("https://inventory-app-ovzh.onrender.com/api/v1/statistics/get-details",{
+     const response=await axios.get(`${API_URL}/api/v1/statistics/get-details`,{
   withCredentials: true  
 })
+
       setStatistics(response.data.data.statistics);
       toast.success("Page Info Fetched Successfully")
     }catch(err){
@@ -66,9 +62,10 @@ const Statistics = ({isMobile}) => {
   }
    const handleGetTiles=async()=>{
     try{
-      const response=await axios.get("https://inventory-app-ovzh.onrender.com/api/v1/statistics/get-layout",{
+      const response=await axios.get(`${API_URL}/api/v1/statistics/get-layout`,{
   withCredentials: true  
 })
+
       if(response.data.mainTiles.length>0){
         setMainTiles(response.data.mainTiles)
 

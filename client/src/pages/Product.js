@@ -13,6 +13,8 @@ import axios from "axios";
 import { setProductID } from "../redux/slices/productsSlice";
 import Info from "../assets/Info.svg";
 const Product = ({ isMobile }) => {
+  const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  // const API_URL = 'http://localhost:8000';
 
   const [addProduct, setAddProduct] = useState({
     productName: "",
@@ -145,13 +147,14 @@ const Product = ({ isMobile }) => {
       data.append("unit", addProduct.unit);
 
       const response = await axios.post(
-        "https://inventory-app-ovzh.onrender.com/api/v1/products/add-product",
+        `${API_URL}/api/v1/products/add-product`,
         data,
         {
           headers: { "Content-Type": "multipart/form-data" },
           withCredentials: true,
         }
       );
+     
       console.log(response);
       dispatch(setIndividualProduct(false));
       setAddProduct({
@@ -194,10 +197,11 @@ const Product = ({ isMobile }) => {
     try {
       console.log("page", page);
       const response = await axios.get(
-        `https://inventory-app-ovzh.onrender.com/api/v1/products/get-product-page-info/?page=${page}`,{
+        `${API_URL}/api/v1/products/get-product-page-info/?page=${page}`,{
   withCredentials: true  
 }
       );
+
 
       setPagination(response.data.data.pagination);
       console.log(response.data.data.pagination);

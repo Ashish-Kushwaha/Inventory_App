@@ -17,14 +17,12 @@ import { toast } from "react-toastify";
 
 
 const Login = ({setIsLoggedIn,isMobile}) => {
-
-  
+  const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  // const API_URL = 'http://localhost:8000';
   const navigate=useNavigate()
   const [loginDetails,setLoginDetails]=useState({email:"",password:""})
   const [email,setEmail]=useState("");
   const [emailCopy,setEmailCopy]=useState("");
-  console.log(email);
-  console.log(emailCopy);
   const [eyeToggle,setEyeToggle]=useState(false);
   const [eyecToggle,setEyecToggle]=useState(false);
   const [eyelToggle,setEyelToggle]=useState(false);
@@ -77,7 +75,8 @@ const Login = ({setIsLoggedIn,isMobile}) => {
     }
      setLoading(true);
      try{
-    const response= await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/login",loginDetails, { withCredentials: true })
+    const response= await axios.post(`${API_URL}/api/v1/users/login`,loginDetails, { withCredentials: true })
+ 
    
     localStorage.setItem('user',JSON.stringify(response.data.data.user));
     setLoginDetails({email:"",password:""})
@@ -116,7 +115,8 @@ const Login = ({setIsLoggedIn,isMobile}) => {
    }
    setLoading(true);
    try{
-    const response=  await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/send-mail",{email}, { withCredentials: true });
+    const response=  await axios.post(`${API_URL}/api/v1/users/send-mail`,{email}, { withCredentials: true });
+   
       console.log(response);
    setEmailContainer(false);
    setOtpC(true)
@@ -130,19 +130,23 @@ const Login = ({setIsLoggedIn,isMobile}) => {
    }
       
   }
-  function validateOTP(otpvalue) {
-  let flag=false;
+  function validateOTP() {
+  let flag = false;
 
-  if (!otpvalue || otpvalue.trim() === "") {
-    flag=true
-    toast.warn("OTP is required")
-  } else if (!/^\d{6}$/.test(otpvalue)) {
-    flag=true
-    toast.warn("OTP must be exactly 6 digits")
+  // Check if OTP is missing or empty
+  if (!otpvalue) {
+    flag = true;
+    toast.warn("OTP is required");
+  } 
+  // Check if OTP is exactly 6 digits
+  else if (!/^\d{6}$/.test(otpvalue)) {
+    flag = true;
+    toast.warn("OTP must be exactly 6 digits");
   }
 
   return flag;
 }
+
   const handleOtpSubmit=async(e)=>{
     e.preventDefault();
     const flag=validateOTP();
@@ -153,7 +157,8 @@ const Login = ({setIsLoggedIn,isMobile}) => {
      try{
         const email=JSON.parse(localStorage.getItem("emailForResetPassword"));
         
-    const response=  await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/verify-otp",{email:email,otp:otpvalue}, { withCredentials: true });
+    const response=  await axios.post(`${API_URL}/api/v1/users/verify-otp`,{email:email,otp:otpvalue}, { withCredentials: true });
+    
     console.log(response);
     setOtpC(false);
     setOtpvalue("");
@@ -202,7 +207,8 @@ const Login = ({setIsLoggedIn,isMobile}) => {
     try{
       const email=localStorage.getItem("emailForResetPassword");
       const parEmail=JSON.parse(email)
-      const response=  await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/reset-password",{email:parEmail,password:passwordDetails.password,confirmPassword:passwordDetails.confirmPassword}, { withCredentials: true });
+      const response=  await axios.post(`${API_URL}/api/v1/users/reset-password`,{email:parEmail,password:passwordDetails.password,confirmPassword:passwordDetails.confirmPassword}, { withCredentials: true });
+     
     console.log(response);
     localStorage.removeItem("emailForResetPassword");
     setResetPassword(false)

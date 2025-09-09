@@ -28,6 +28,8 @@ import axios from "axios";
 import { setProductID } from "./redux/slices/productsSlice";
 import Setting from "./components/Setting";
 const Layout = ({ isMobile }) => {
+  const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  // const API_URL = 'http://localhost:8000';
   const { invoiceProducts, invoiceAmount, invoiceReference, dueDate } =
     useSelector((state) => state.invoices);
     const [loading, setLoading] = useState(false);
@@ -37,13 +39,14 @@ const Layout = ({ isMobile }) => {
       setLoading(true);
       try{
        const response = await axios.get(
-      `https://inventory-app-ovzh.onrender.com/api/v1/invoices/download/${invoiceid}`,
+      `${API_URL}/api/v1/invoices/download/${invoiceid}`,
       {
         responseType: "blob",
 
         withCredentials: true,
       }
     );
+    
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement("a");
     link.href = url;
@@ -77,7 +80,7 @@ const Layout = ({ isMobile }) => {
   function get10DaysBeforeFormatted(isoDateString) {
     const date = new Date(isoDateString);
 
-    // Subtract 10 days (10 * 24 * 60 * 60 * 1000 milliseconds)
+ 
     const tenDaysBefore = new Date(date.getTime() - 10 * 24 * 60 * 60 * 1000);
 
     const day = String(tenDaysBefore.getUTCDate()).padStart(2, "0");
@@ -101,14 +104,14 @@ const Layout = ({ isMobile }) => {
       const data = new FormData();
     data.append("file", file);
      await axios.post(
-      "https://inventory-app-ovzh.onrender.com/api/v1/products/many-products",
+      `${API_URL}/api/v1/products/many-products`,
       data,
       {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true,
       }
     );
-    
+   
     dispatch(setUploadCSVFileModal(false));
     setFile(null);
     toast.success("CSV file uploaded successfully you should switch between 2 pages for changes to reflect")
@@ -125,19 +128,18 @@ const Layout = ({ isMobile }) => {
   };
   console.log(addProductModal);
   const dispatch = useDispatch();
-  // const handleOrder=()=>{
-
-  // }
+  
   const handleQuantity = async () => {
     setLoading(true);
     try{
       const response = await axios.patch(
-      `https://inventory-app-ovzh.onrender.com/api/v1/products/decrease-quantity/${productID}`,
+      `${API_URL}/api/v1/products/decrease-quantity/${productID}`,
       { decreaseBy },
       {
         withCredentials: true,
       }
     );
+  
     console.log(response.data.data);
     dispatch(setOrderModal(false));
     dispatch(setProductID(""));

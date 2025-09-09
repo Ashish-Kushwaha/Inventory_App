@@ -81,8 +81,8 @@ const loginUser = asyncHandler(async (req, res) => {
   const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(
     user._id
   );
-  console.log("acc ", accessToken);
-  console.log("ref ", refreshToken);
+  // console.log("acc ", accessToken);
+  // console.log("ref ", refreshToken);
 
   const loggedInUser = await User.findById(user._id).select(
     "-password -refreshToken"
@@ -100,12 +100,34 @@ const loginUser = asyncHandler(async (req, res) => {
   //   maxAge: 1000 * 60 * 60 * 24
   // });
   
-  const options = {
-    httpOnly: true,
-    secure: true,
-    sameSite: "none",
-    maxAge: 1000 * 60 * 60 * 24 * 7
-  };
+  // const options = {
+  //   httpOnly: true,
+  //   secure: true,
+  //   sameSite: "none",
+  //   maxAge: 1000 * 60 * 60 * 24 * 7
+  // };
+  // const options={
+  //    httpOnly: true,
+  //     secure: process.env.NODE_ENV === 'production', // true in production
+  //     sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  //     maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+  // }
+  // for development purpose only
+//  const options  ={
+//   httpOnly: true,
+//   secure: true,
+//   sameSite: 'none',
+//   domain: 'your-frontend.com',
+//   maxAge: 24 * 60 * 60 * 1000,
+// }
+const options={
+  httpOnly: true,            // Prevent access by JS in the browser
+  secure: true,              // Send cookie only over HTTPS
+  sameSite: 'none',          // Required for cross-origin requests
+  domain: 'inventory-app-ovzh.onrender.com', // Set your frontend domain
+  path: '/',                 // Default path
+  maxAge: 24 * 60 * 60 * 1000, // Example: cookie valid for 1 day
+}
   return res
     .status(200)
     .cookie("accessToken", accessToken, options)
@@ -169,7 +191,8 @@ const sendMail = asyncHandler(async (req, res) => {
 
 const verifyOTP = asyncHandler(async (req, res) => {
   const { email, otp } = req.body;
-
+  console.log(email)
+  console.log(otp)
   if (!otp) {
     new ApiError(400, "Otp is not recieved");
   }
@@ -177,7 +200,7 @@ const verifyOTP = asyncHandler(async (req, res) => {
   if (!OTP) {
     throw new ApiError(400, "No otp for this mail ");
   } 
-
+   console.log(OTP.otp)
   if (Number(otp) !== OTP.otp) {
     throw new ApiError(400, "Invalid OTP");
   }

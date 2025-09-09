@@ -14,6 +14,8 @@ import {
 import axios from "axios";
 import { toast } from "react-toastify";
 const Invoices = ({ isMobile }) => {
+  const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  // const API_URL = 'http://localhost:8000';
   const [invoiceModalId, setInvoiceModalId] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -24,9 +26,10 @@ const Invoices = ({ isMobile }) => {
     setLoading(true);
     try {
       const response = await axios.patch(
-        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/paid/${invoiceID}`,{},{
+        `${API_URL}/api/v1/invoices/paid/${invoiceID}`,{},{
   withCredentials: true  
 }
+
       );
       console.log(response.data.data);
       getPageInfo();
@@ -44,10 +47,11 @@ const Invoices = ({ isMobile }) => {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/delete/${invoiceID}`,{
+        `${API_URL}/api/v1/invoices/delete/${invoiceID}`,{
   withCredentials: true  
 }
       );
+
       console.log(response.data);
       getPageInfo();
       setDeleteInvoice(false);
@@ -63,11 +67,11 @@ const Invoices = ({ isMobile }) => {
     setLoading(true);
     try {
       const response = await axios.patch(
-        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/view/${invoiceID}`,{},{
+        `${API_URL}/api/v1/invoices/view/${invoiceID}`,{},{
   withCredentials: true  
 }
       );
-      console.log(response.data);
+
 
       // getPageInfo();
       toast.success(response.data.message);
@@ -89,10 +93,11 @@ const Invoices = ({ isMobile }) => {
   const getPageInfo = async (page) => {
     try {
       const response = await axios.get(
-        `https://inventory-app-ovzh.onrender.com/api/v1/invoices/get-invoice-page-info/?page=${page}`,{
+        `${API_URL}/api/v1/invoices/get-invoice-page-info/?page=${page}`,{
   withCredentials: true  
 }
       );
+
       console.log(response.data.data);
       setPaginatedInvoices(response.data.data.paginatedInvoices);
       setrecentTransactions(response.data.data.recentTransactions);
@@ -245,7 +250,7 @@ const Invoices = ({ isMobile }) => {
                             >
                               <div className={styles["view-delete"]} onClick={(e) => e.stopPropagation()}>
                                 <button
-                                  // disabled={loading}
+                                  disabled={loading}
                                   style={{cursor:"pointer"}}
                                   type="button"
                                   className={styles["view"]}
@@ -261,6 +266,7 @@ const Invoices = ({ isMobile }) => {
                                 </button>
                                 <div
                                   className={styles["delete"]}
+                                  tyle={{cursor:"pointer"}}
                                   onClick={() => {
                                     setViewInvoice(false);
                                     setDeleteInvoice(true);
@@ -487,6 +493,7 @@ const Invoices = ({ isMobile }) => {
                                   {loading ? "Wait" : "View Invoice"}
                                 </button>
                                 <div
+                                style={{cursor:"pointer"}}
                                   className={styles["delete"]}
                                   onClick={() => {
                                     setViewInvoice(false);

@@ -158,7 +158,7 @@ export const addProduct = async (req, res) => {
 
     const productImageLocalPath = req.file.path;
     const productImage = await uploadOnCloudinary(productImageLocalPath);
-    console.log("Uploaded to Cloudinary:", productImage);
+    // console.log("Uploaded to Cloudinary:", productImage);
     if (!productImage) {
       throw new ApiError(400, "Product image is required");
     }

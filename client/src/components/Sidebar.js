@@ -1,4 +1,4 @@
-import  { useState } from "react";
+// import  { useState } from "react";
 import styles from "./Sidebar.module.css";
 import Logo from "../assets/Logo2.svg";
 import Home from "../assets/Home.svg";
@@ -6,18 +6,23 @@ import Product from "../assets/Product.svg";
 import Invoice from "../assets/Invoice.svg";
 import Statistics from "../assets/Statistics.svg";
 import Setting from "../assets/Setting.svg";
-import {  useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 
 const Sidebar = ({isMobile}) => {
-  const [navText,setNavText]=useState("Home");
+  const location = useLocation();
+  const home = location.pathname==="/";
+  const product = location.pathname.startsWith("/product");
+  const invoices = location.pathname.startsWith("/invoices");
+  const statistics = location.pathname.startsWith("/statistics");
+  const settings = location.pathname.startsWith("/settings");
   const parUser=JSON.parse(localStorage.getItem("user"));
   const [firstName] = (parUser?.loggedInUser.fullName || "").split(" ");
 
   const navigate=useNavigate();
 
 
- 
+  
   return (
     <div className={styles["sidebar-container"]}>
       {
@@ -28,11 +33,11 @@ const Sidebar = ({isMobile}) => {
       <div className={styles["nav-user-container"]}>
         <div className={styles["nav-container"]}>
           <div className={styles["img-text"]} onClick={(e)=>{navigate("/")
-            setNavText("Home")
+            
           }
           
         }style={{
-        backgroundColor: navText==="Home" ? '#424457' : '',
+        backgroundColor: home ? '#424457' : '',
         
       }}  >
           {
@@ -47,11 +52,11 @@ const Sidebar = ({isMobile}) => {
             
           </div>
           <div className={styles["img-text"]} onClick={(e)=>{navigate("/product")
-            setNavText("Product")
+           
           }
         
         } style={{
-        backgroundColor: navText==="Product" ? '#424457' : '',
+        backgroundColor: product ? '#424457' : '',
         
       }}>
           {
@@ -66,9 +71,9 @@ const Sidebar = ({isMobile}) => {
             
           </div>
           <div className={styles["img-text"]} onClick={(e)=>{navigate("/invoices")
-            setNavText("Invoice")
+         
           }} style={{
-        backgroundColor: navText==="Invoice" ? '#424457' : '',
+        backgroundColor: invoices ? '#424457' : '',
         
       }}>
             {
@@ -82,8 +87,8 @@ const Sidebar = ({isMobile}) => {
           }
             
           </div>
-          <div className={styles["img-text"]} onClick={()=>{navigate("/statistics");setNavText("Statistics")}}style={{
-        backgroundColor: navText==="Statistics" ? '#424457' : '',
+          <div className={styles["img-text"]} onClick={()=>{navigate("/statistics")}}style={{
+        backgroundColor: statistics ? '#424457' : '',
         
       }} >
             {
@@ -98,8 +103,8 @@ const Sidebar = ({isMobile}) => {
             
           </div>
           {
-            isMobile?(<></>):(<div className={styles["img-text"]} onClick={()=>{navigate("/settings");setNavText("Setting")}} style={{
-        backgroundColor: navText==="Setting" ? '#424457' : '',
+            isMobile?(<></>):(<div className={styles["img-text"]} onClick={()=>{navigate("/settings")}} style={{
+        backgroundColor: settings ? '#424457' : '',
         
       }} >
             <div className={styles["img"]}>

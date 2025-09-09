@@ -8,7 +8,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 const Signup = ({isMobile}) => {
   const [user,setUser]=useState({fullName:"",email:"",password:"",confirmPassword:""})
-
+  // const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  const API_URL = 'http://localhost:8000';
   const navigate=useNavigate();
   const Handlechange=(e)=>{
     const {name,value} =e.target;
@@ -74,8 +75,8 @@ const Signup = ({isMobile}) => {
    }
    setLoading(true)
    try{
-     const response= await axios.post("https://inventory-app-ovzh.onrender.com/api/v1/users/register",user,{ withCredentials: true })
-     console.log(response);
+        await axios.post(`${API_URL}/api/v1/users/register`,user,{ withCredentials: true })
+   
    navigate("/login")
    toast.success("Signed Up Successfully!! Please Login")
    }catch(err){

@@ -4,7 +4,7 @@ import  { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 import Sales from "../assets/Sales.svg";
 import Calendar from "../assets/Calendar.svg";
-import Revenue from "../assets/Revenue.svg";
+import Revenue from "../assets/Revenue.svg"; 
 import Profit from "../assets/Profit.svg";
 import Cost from "../assets/Cost.svg";
 import Purchase from "../assets/Purchase.svg";
@@ -35,6 +35,8 @@ import { toast } from "react-toastify";
 
 
 const Dashboard = ({ isMobile }) => {
+  const API_URL = 'https://inventory-app-ovzh.onrender.com';
+  // const API_URL = 'http://localhost:8000';
 
   const dispatch=useDispatch();
  
@@ -46,10 +48,10 @@ const Dashboard = ({ isMobile }) => {
  
   const handleSaveLayout= async(overview,summary)=>{
    try{
-     await axios.put("https://inventory-app-ovzh.onrender.com/api/v1/home/save-layout",{overview,summary},{
+     await axios.put(`${API_URL}/api/v1/home/save-layout`,{overview,summary},{
   withCredentials: true  
 })
-    //  toast.success("Layout Saved Successfully!")
+
    }catch(err){
      console.log(err);
      toast.error("Layout is not Saved!")
@@ -61,9 +63,10 @@ const Dashboard = ({ isMobile }) => {
   }
   const handleGetLayout= async()=>{
     try{
-      const respone=await axios.get("https://inventory-app-ovzh.onrender.com/api/v1/home/get-layout",{
+      const respone=await axios.get(`${API_URL}/api/v1/home/get-layout`,{
   withCredentials: true  
 })
+
      
       if(respone.data?.overview?.length>0)
       {
@@ -102,10 +105,11 @@ const Dashboard = ({ isMobile }) => {
   const handleGetInfo=async()=>{
     try{
         const response = await axios.get(
-      "https://inventory-app-ovzh.onrender.com/api/v1/home/get-page-info",{
+      `${API_URL}/api/v1/home/get-page-info`,{
   withCredentials: true  
 }
     );
+
 
     dispatch(setTopProducts(response.data.data.topProducts))
 
@@ -148,7 +152,7 @@ const Dashboard = ({ isMobile }) => {
   useEffect(()=>{
      handleGetInfo();
      handleGetLayout();
-  },[overview,summary])
+  },[])
   
 
 

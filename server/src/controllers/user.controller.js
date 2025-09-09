@@ -124,7 +124,7 @@ const options={
   httpOnly: true,            // Prevent access by JS in the browser
   secure: true,              // Send cookie only over HTTPS
   sameSite: 'none',          // Required for cross-origin requests
-  domain: 'inventory-app-ovzh.onrender.com', // Set your frontend domain
+  domain: 'inventoryapp122.netlify.app/', // Set your frontend domain
   path: '/',                 // Default path
   maxAge: 24 * 60 * 60 * 1000, // Example: cookie valid for 1 day
 }

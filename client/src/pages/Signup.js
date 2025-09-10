@@ -75,7 +75,8 @@ const Signup = ({isMobile}) => {
    }
    setLoading(true)
    try{
-        await axios.post(`${API_URL}/api/v1/users/register`,user,{ withCredentials: true })
+        await axios.post(`${API_URL}/api/v1/users/register`,user)
+        // await axios.post(`${API_URL}/api/v1/users/register`,user,{ withCredentials: true })
    
    navigate("/login")
    toast.success("Signed Up Successfully!! Please Login")

@@ -35,13 +35,17 @@ Node.js
 Express.js
 MongoDB
 
+Backend is taking more time as expected please take care of that or please have patience.
+
+In reset password flow don't refresh the page after Email sent other wise not able to get the account back
+
 Demo Credentials
 
-youremail@gmail.com
+ashishkushwah@gmail.com
 
-yourpassword  :- password should be minimun 8 characters
+ashishkushwaha  :- password should be minimun 8 characters
 
-Keep paid Invoices to track Sales 
+Keep paid Invoices to track Sales criteria 
 
 Product sold is identified by when quantity of the product gets 0 and which shows out-of-stock
 
@@ -52,3 +56,35 @@ Quantiy> Threshold value gives In-stock
 Quantiy< Threshold value gives low-stock
 
 Product which are expired which shows expired 
+
+After Login
+
+We can add single product.
+
+We can add multiple prroduct.
+
+Invoice will generate as we add product
+
+CSV File Demo Data
+
+productName,category,price,quantity,unit,expiryDate,thresholdValue,availability
+
+Apple,Food,50,100,kg,2025-12-31,10,In-stock
+Banana,Food,20,200,kg,2025-12-25,20,In-stock
+
+
+
+We can update the quantity of the product by clicking on the product a order modal appears and that can change the availabilty of the product and switch between 2 pages for rendering the changes 
+
+one add the products purchase criteria will generate
+
+On paid invoice unique reference number will generate then View and delete button will enable 
+
+We can download the PDF of the generated invoice
+
+
+We can drag and drop the widgets of the satistics and homepage 
+
+On Refreshing the statistics page home please visit once as I  am storing on the redux for the state of the statistics gragh and top products.
+
+On setting page we can change our info and on account management tab we can logout.

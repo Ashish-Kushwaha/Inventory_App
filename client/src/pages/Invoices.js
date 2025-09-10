@@ -235,10 +235,20 @@ const Invoices = ({ isMobile }) => {
                       <div className={styles["date-dots"]}>
                         <div className={styles["date"]}>
                           <img src={View} alt="view" onClick={()=>{
+                            // dispatch(setInvoiceModal(true));
+                            // handleView(inv._id);
+                            // dispatch(setInvoiceID(inv._id));
+                            // dispatch(setInvId(inv.invoiceID))
                             dispatch(setInvoiceModal(true));
-                            handleView(inv._id);
-                            dispatch(setInvoiceID(inv._id));
-                            dispatch(setInvId(inv.invoiceID))
+                                    handleView(inv?._id);
+                                    dispatch(setInvoiceID(inv?._id));
+                                    dispatch(setInvoiceProducts(inv?.products||[]));
+                                    dispatch(setInvoiceAmount(inv?.amount||0));
+                                    dispatch(setInvoiceReference(inv?.referenceNumber||"-"));
+                                    dispatch(setDueDate(inv?.dueDate||0));
+                                    console.log(inv?.products);
+                                    dispatch(setInvId(inv?.invoiceID))
+                                    console.log(inv?._id)
                           }}/>
                           <img src={Delete} alt="delete" onClick={()=>{setInvoiceModalId(inv._id);
                             setDeleteInvoice(true);

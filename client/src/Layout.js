@@ -267,8 +267,195 @@ const Layout = ({ isMobile }) => {
                     className={styles["red"]}
                     onClick={() => dispatch(setInvoiceModal(false))}
                   >
-                    <div></div>
-                    <img src={Cross} alt="cross" />
+                    
+                  
+                      <div className={styles["heading_cross"]}>
+                        <h2>INVOICE</h2>
+                      <img src={Cross} alt="cross" />
+                      </div>
+                   
+                    <div className={styles["invoice-container"]}>
+                      <div className={styles["invoice-details-container"]}>
+                        <div className={styles["invoice_header"]}>
+                          
+                          <div className={styles["company-details"]}>
+                            <div style={{ fontWeight: "600" }}>Billed to</div>
+                            <div
+                              style={{ fontSize: ".7rem", color: "#a1a5ad" }}
+                            >
+                              <p>Company Name</p>
+                              <p>Business address</p>
+                            </div>
+                            <div
+                              style={{ fontSize: ".7rem", color: "#a1a5ad" }}
+                            >
+                              <p>Company address</p>
+                              <p>City,State,IN-000000</p>
+                            </div>
+                            <div
+                              style={{ fontSize: ".7rem", color: "#a1a5ad" }}
+                            >
+                              <p>City, Country-00000</p>
+                              <p>TAX ID 00XXXXX123X0XX</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles["invoice-details"]}>
+                          <div className={styles["left"]}>
+                            <div>
+                              <p style={{ fontWeight: "600" }}>Invoice #</p>
+                              <span
+                                style={{ fontSize: ".7rem", color: "#636a76" }}
+                              >
+                                {invId}
+                              </span>
+                            </div>
+                            <div>
+                              <p style={{ fontWeight: "600" }}>Invoice date</p>
+                              <span
+                                style={{ fontSize: ".7rem", color: "#636a76" }}
+                              >
+                                {get10DaysBeforeFormatted(dueDate)}
+                              </span>
+                            </div>
+                            <div>
+                              <p style={{ fontWeight: "600" }}>Reference</p>
+                              <span
+                                style={{ fontSize: ".7rem", color: "#636a76" }}
+                              >
+                                {invoiceReference}
+                              </span>
+                            </div>
+                            <div>
+                              <p style={{ fontWeight: "600" }}>Due Date</p>
+                              <span
+                                style={{ fontSize: ".7rem", color: "#636a76" }}
+                              >
+                                {formatDateToDDMMYY(dueDate)}
+                              </span>
+                            </div>
+                          </div>
+                          <div className={styles["right_container"]}>
+                            <div className={styles["right"]}>
+                              <table>
+                                <thead
+                                  style={{ backgroundColor: "transparent" }}
+                                >
+                                  <th>Product</th>
+                                  <th>Quantity</th>
+                                  <th>Price</th>
+                                </thead>
+                                <tbody>
+                                  {Array.isArray(invoiceProducts) &&
+                                    invoiceProducts.map((product) => {
+                                      return (
+                                        product && (
+                                          <tr
+                                            key={product._id}
+                                            className={styles["product"]}
+                                          >
+                                            <td className={styles["name"]}>
+                                              {product.productName}
+                                            </td>
+                                            <td className={styles["quantity"]}>
+                                              {product.quantity}
+                                            </td>
+                                            <td className={styles["price"]}>
+                                              ₹{product.price}
+                                            </td>
+                                          </tr>
+                                        )
+                                      );
+                                    })}
+                                </tbody>
+                               
+                                <tfoot>
+                                  <tr>
+                                    <td colSpan="3" style={{ padding: "5px" }}>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "100%",
+                                          height: "100%",
+                                          flexDirection: "column",
+                                          justifyContent: "space-between",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "100%",
+                                            justifyContent: "space-between",
+                                          }}
+                                        >
+                                          Total Due: <p>₹{invoiceAmount}</p>
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "100%",
+                                            justifyContent: "space-between",
+                                          }}
+                                        >
+                                          Subtotal Due:{" "}
+                                          <p>
+                                            ₹{(invoiceAmount * 0.1).toFixed(2)}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td colSpan="3" style={{ padding: "5px" }}>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "100%",
+                                          height: "100%",
+                                          flexDirection: "column",
+                                          justifyContent: "space-between",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "100%",
+                                            justifyContent: "space-between",
+                                            color: "#118fa0",
+                                            fontWeight: "600",
+                                          }}
+                                        >
+                                          Total Due:{" "}
+                                          <p>
+                                            ₹
+                                            {(
+                                              invoiceAmount +
+                                              invoiceAmount * 0.1
+                                            ).toFixed(2)}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tfoot>
+                              </table>
+                            </div>
+                            <div className={styles["note"]}>
+                              <img src={Icon} alt="icon" />
+                              <p>
+                                Please pay within 10 days of receiving this
+                                invoice
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles["invoice_footer"]}>
+                        <p>www.recehtol.inc</p>
+                        <p>+91 0000000000</p>
+                        <p>hello@gmail.com</p>
+                      </div>
+                    </div>
                   </div>
                 ) : (
                   <>
